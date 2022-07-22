@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./resume-styles.css">
+
+  <title>Resume Generator</title>
+</head>
+
+<body>
+  <!-- here goes html code  -->
+
+  <!-- cv - form -->
+  <div class="card mx-5 mt-3" id="cv-form">
+    <div class="card-header">
+      <h1 class="text-center my-2">Resume Generator</h1>
+      <p class="text-center">By ADITYA BHARDWAJ</p>
+
+    </div>
+    <div class="card-body">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- first col -->
+            <h3>Personal Information</h3>
+
+            <div class="mb-3">
+              <label for="nameField">Your Name</label>
+              <input type="text" id="nameField" placeholder="Enter here" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="roleField">Enter Your Role</label>
+              <input type="text" id="roleField" placeholder="Enter here" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <label for="contactField">Your Phone Number</label>
+              <input type="text" id="contactField" placeholder="Enter here" class="form-control" required/>
+            </div>
+
+            <div class="mb-3">
+              <label for="emailField">Your Email Address</label>
+              <input type="email" id="emailField" placeholder="Enter here" class="form-control" required/>
+            </div>
+
+            <div class="mb-5">
+              <label for="addressField">Your Address</label>
+              <textarea id="addressField" placeholder="Enter here" class="form-control" rows="5" required></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="">Select your photo</label>
+              <input id="imgField" type="file" class="form-control" />
+            </div>
+
+            <p class="text-secondary my-3">Important Links</p>
+            
+            <div class="mb-3">
+              <label for="linkedInField">LinkedIn</label>
+              <input type="text" id="linkedInField" placeholder="Enter here" class="form-control" required/>
+            </div>
+            <div class="mb-3">
+              <label for="ghField">Github </label>
+              <input type="text" id="ghField" placeholder="Enter here" class="form-control" required/>
+            </div>
+            <div class="mb-3">
+              <label for="instaField">Instagram </label>
+              <input type="text" id="instaField" placeholder="Enter here" class="form-control" required/>
+            </div>
+
+            <!-- SKills Field -->
+            <div class="mb-3" id="skillArea">
+                <h3 class="mt-4">Add Skills</h3>
+
+                <div class="skill-div" id="skillDiv1">
+                  <div class="container text-end skill-close-btn" style="font-size:24px; cursor: pointer;">
+                    <!-- <i class="fa fa-close"></i> -->
+                  </div>
+                  <div class="row gx-3 gy-2 my-1 align-items-center">
+                    <div class="col-sm-5">
+                      <label for="skillsField" class="mb-2">Skill</label>
+                      <input type="text" placeholder="Enter here" class="form-control skill-name-field" required/>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="slidecontainer">
+                        <p>Level: <span class="level"></span></p>
+                        <input type="range" min="1" max="4" value="4" class="slider myRange skill-range-field "/>
+                        <!-- <p>Value: <span id="demo"></span></p> -->
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="container mb-3" id="skillAddButton">
+                <button onclick="addSkillsField()" class="btn btn-dark">
+                  Add Skill
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          
+
+          <div class="col-md-6">
+            <!-- second col -->
+            <h3>Professional Information</h3>
+
+            <div class="mb-3">
+              <label for="aboutField" class="fs-5" style="font-weight: bold;">About</label>
+              <textarea id="aboutField" rows="5" placeholder="Enter here" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-1" id="we">
+              <label for="" class="fs-5" style="font-weight: bold;">Work Experience</label>
+              
+              <div class="work-form-field" id = "workDiv1">
+                
+                <div class="container text-end work-close-btn" style="font-size:24px; cursor: pointer;">
+                  <!-- <i class="fa fa-close"></i> -->
+                </div>
+
+                <div class="row gx-3 gy-2 my-3 align-items-center">
+                  <div class="col-sm-5">
+                    <label for="">Work Title</label>
+                    <input type="text" class="form-control we-name-field" placeholder="Enter Work Title Here" required>
+                  </div>
+                  <div class="col-sm-auto">
+                    <label for="">Start Date</label>
+                    <input type="text" class="form-control we-start-date-field" placeholder="MMM YYYY Format" required>
+                  </div>
+                  <div class="col-sm-auto end-date-div">
+                    <label for="">End Date</label>
+                    <input type="text" class="form-control we-end-date-field" placeholder="MMM YYYY Format">
+                  </div>
+                  <div class="col-sm-auto mt-5">
+                    <div class="form-check">
+                      <input class="form-check-input presentcheckbox" type="checkbox" value=""  onclick="checkFun(this)">
+                      <label class="form-check-label" for="notfinished">
+                        Currently Working
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="description-area">
+
+                  <textarea placeholder="Enter Description here" id="textarea1" class="form-control weField" rows="3" required></textarea>
+
+                </div>
+                
+              </div>
+
+
+              <!-- new textarea -->
+
+              <div class="container mb-3" id="weAddButton">
+                <button onclick="addNewWEField()" class="btn btn-dark">
+                  Add
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-1" id="aq">
+              <label for="" class="fs-5" style="font-weight: bold;">Academic Qualification</label>
+              <div class="aq-form-field" id = "aqDiv1">
+                <div class="container text-end aq-close-btn" style="font-size:24px; cursor: pointer;">
+                  <!-- <i class="fa fa-close"></i> -->
+                </div>
+                <div class="row gx-3 gy-2 my-3 align-items-center">
+                  <div class="col-sm-5">
+                    <label for="">School/College Name</label>
+                    <input type="text" class="form-control aq-name-field" placeholder="Enter School/College Here" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="">Degree</label>
+                    <input type="text" class="form-control aq-degree-field" placeholder="Enter your Degree/Board Here" required>
+                  </div>
+                  <div class="col-sm-auto">
+                    <label for="">Start Date</label>
+                    <input type="text" class="form-control aq-start-date-field" placeholder="YYYY Format" required>
+                  </div>
+                  <div class="col-sm-auto">
+                    <label for="">End Date</label>
+                    <input type="text" class="form-control aq-end-date-field" placeholder="YYYY Format" required>
+                  </div>
+                </div>
+
+                <textarea placeholder="Enter Description here" id="aqTextArea1" class="form-control eqField" rows="3" required></textarea>
+              </div>
+
+              <div class="container mb-3" id="aqAddButton">
+                <button onclick="addNewAQField()" class="btn btn-dark">
+                  Add
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container text-center mt-3">
+          <button onclick="generateCV()" class="btn btn-dark btn-lg">
+            Generate CV
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- cv template -->
+  <div id="cv-template">
+
+    <div class="print-area">
+      <div class="header">
+        <img id="imageValue" src="./default.jpg">
+        <div class="header-text">
+          <h1 id="nameElement">ADITYA BHARDWAJ</h1>
+          <p id="roleElement">Web Developer</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="left-area">
+          <div class="contact">
+            <h4>CONTACT</h4>
+            <h5>Phone </h5>
+            <p id="contactNumber">7982177620</p>
+            <h5>Email</h5>
+            <p id="emailID">adityamk43@gmail.com</p>
+            <h5>Address</h5>
+            <p id="address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, adipisci?</p>
+          </div>
+
+          <div class="skills">
+            <h1>SKILLS</h1>
+            <div class="bars">
+              <!-- <div class="bar">
+                <p class="skillNameT">C/C++</p>
+                <span class="skillBar"></span>
+              </div>
+              <div class="bar">
+                <p>JAVA</p>
+                <span></span>
+              </div>
+              <div class="bar">
+                <p>PYTHON</p>
+                <span></span>
+              </div>
+              <div class="bar">
+                <p>HTML</p>
+                <span></span>
+              </div>
+              <div class="bar">
+                <p>CSS</p>
+                <span></span>
+              </div>
+              <div class="bar">
+                <p>JAVASCRIPT</p>
+                <span></span>
+              </div> -->
+            </div>
+
+          </div>
+
+          <div class="follow">
+            <h1>FOLLOW ME</h1>
+            <h4><i class="fa-brands fa-linkedin"></i> LinkedIn</h4>
+            <p id="linkedinLink">https://www.linkedin.com/in/aditya-bhardwaj-404466201</p>
+            <h4><i class="fa-brands fa-github"></i> Github</h4>
+            <p id="githubLink">https://github.com/adityamk43</p>
+            <h4><i class="fa-brands fa-instagram"></i> Instagram</h4>
+            <p id="instagramLink">https://www.instagram.com/ig_remonz/</p>
+
+          </div>
+
+
+        </div>
+        <div class="right-area">
+          <div class="about">
+            <h1><span><i class="far fa-user"></i></span>ABOUT ME</h1>
+            <p id="aboutValue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius aliquam quam temporibus ullam incidunt
+              vitae voluptatem assumenda molestiae, adipisci iure? Dicta ipsa consectetur quas temporibus, tenetur nam
+              voluptatum, alias facere perspiciatis cumque, quos rerum explicabo porro nulla eos? Ea voluptates odit
+              nobis architecto voluptatum? Officiis mollitia nulla laudantium a asperiores.</p>
+          </div>
+
+          <h1><span><i class="fas fa-suitcase-rolling"></i></span>WORK EXPERIENCE</h1>
+          <div class="work">
+
+            <!-- <div class="work-group">
+              <h3>HOTEL MANAGEMENT WEB APPLICATION</h3>
+              <span>Apr 2022 - Jul 2022</span>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat repudiandae, veritatis nesciunt,
+                earum itaque voluptatum mollitia soluta omnis amet quod nostrum dolor eius quam praesentium doloribus
+                aperiam error quisquam vel.</p>
+
+            </div> 
+
+            <div class="work-group">
+              <h3>SMART CONTACT MANAGER</h3>
+              <span>Jul 2022 - Jul 2022</span>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat repudiandae, veritatis nesciunt,
+                earum itaque voluptatum mollitia soluta omnis amet quod nostrum dolor eius quam praesentium doloribus
+                aperiam error quisquam vel.</p>
+
+            </div>
+
+            <div class="work-group">
+              <h3>ENDLESS RUNNER</h3>
+              <span>Jul 2021 - Oct 2021</span>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat repudiandae, veritatis nesciunt,
+                earum itaque voluptatum mollitia soluta omnis amet quod nostrum dolor eius quam praesentium doloribus
+                aperiam error quisquam vel.</p>
+
+            </div> -->
+          </div>
+          <h1><span><i class="fas fa-book"></i></span>EDUCATION</h1>
+          <div class="education">
+
+            <!-- <div class="edu-group">
+              <h4>GURUKUL THE SCHOOL <br> 10<sup>th</sup> (CBSE)</h4>
+              <span>2016-2017</span>
+              <p>GRADE: 10CGPA</p>
+
+            </div>
+            <div class="edu-group">
+              <h4>GURUKUL THE SCHOOL <br> 12<sup>th</sup> (CBSE)</h4>
+              <span>2018-2019</span>
+              <p>Stream: PCM <br /> PERCENTAGE: 95%</p>
+
+            </div>
+            <div class="edu-group">
+              <h4>AMITY UNIVERSITY JHARKHAND <br> Bachelor of Technology</h4>
+              <span>2019-2023</span>
+              <p>Branch: Computer Science <br>Grade: 9.56 CGPA (6th Sem)</p>
+
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <button id="PrintResume" style="margin-right: 10px !important;">Print Resume</button>
+    <button id="goBack">Make Resume Again</button>
+    <button id="fillAgain">Edit Resume</button>
+
+  </div>
+  
+  <!-- FONTAWESOME JS -->
+  <script src="https://kit.fontawesome.com/133da0018b.js" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+  crossorigin="anonymous"></script>
+
+  <!-- CUSTOM JS -->
+  <!-- TinyMCE6 CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+	
+  <script>
+      tinymce.init({
+        selector: '.weField',
+        plugins: 'lists',
+        toolbar: 'numlist bullist'
+      });
+      tinymce.init({
+        selector: '.eqField',
+        plugins: 'lists',
+        toolbar: 'numlist bullist'
+      });
+      tinymce.init({
+        selector: '#aboutField',
+        plugins: 'lists',
+        toolbar: 'numlist bullist'
+      });
+
+
+      function checkFun(elem)
+      {
+        // console.log(elem);
+        let parentOb = elem.parentNode.parentNode.parentNode.parentNode;
+        // console.log(parentOb);
+        // console.log(parentOb.querySelector(".presentcheckbox").checked);
+        if(parentOb.querySelector(".presentcheckbox").checked)
+        {
+          parentOb.querySelector(".end-date-div").style.display = "none";
+        }
+        else{
+          parentOb.querySelector(".end-date-div").style.display = "block";
+        }
+      }
+
+  </script>
+
+
+  <script src="./script.js"></script>
+
+  <script>
+    var btn = document.getElementById("PrintResume");
+    var btn2 = document.getElementById("goBack");
+    var btn3 = document.getElementById("fillAgain");
+    
+    btn.onclick = () => {
+      window.print();
+    }
+
+    btn2.onclick = () =>
+    {
+      window.location.href = "index.html";
+    }
+
+    btn3.onclick = () =>
+    {
+      if (document.getElementById("cv-form").style.display === "block" && document.getElementById("cv-template").style.display === "none")
+      {
+        document.getElementById("cv-form").style.display = "none";
+        document.getElementById("cv-template").style.display = "block";
+      }
+      else
+      {
+        document.body.style.backgroundColor = "#e2e2e2";
+        document.getElementById("cv-form").style.display = "block";
+        document.getElementById("cv-template").style.display = "none";
+        
+      }
+    }
+
+    
+
+  </script>
+
+  <script>
+
+    function updateChange()
+    {
+      let slider = document.querySelectorAll(".myRange");
+      // let output = document.getElementById("demo");
+      let level = document.querySelectorAll(".level");
+
+      // output.innerHTML = slider.value;
+
+      for (let i=0; i<slider.length; i++){
+        
+        if (slider[i].value == 4) {
+        level[i].innerHTML = "Experience";
+        level[i].style.color = "green";
+        slider[i].style.setProperty("--sliderColor", "green"); 
+        slider[i].style.backgroundColor="rgba(0, 128, 0, 0.3)";
+        }
+        
+        slider[i].oninput = function () {
+            // output.innerHTML = this.value;
+
+            if (slider[i].value == 1) {
+                level[i].innerHTML = "Novice";
+                slider[i].style.setProperty("--sliderColor", "red");
+                level[i].style.color = "red";
+                slider[i].style.backgroundColor="rgba(255, 0, 0, 0.3)";
+            } 
+            
+            else if (slider[i].value == 2) {
+                level[i].innerHTML = "Beginner";
+                level[i].style.color = "rgba(255, 89, 0, 0.984)";
+                slider[i].style.setProperty("--sliderColor", "rgba(255, 89, 0, 0.984)"); 
+                slider[i].style.backgroundColor="rgba(255, 89, 0, 0.3)";
+            } 
+            
+            else if (slider[i].value == 3) {
+                level[i].innerHTML = "Skillful";
+                level[i].style.color = "rgb(255, 169, 10)";
+                slider[i].style.setProperty("--sliderColor", "rgb(255, 169, 10)"); 
+                slider[i].style.backgroundColor="rgba(255, 169, 10, 0.3)";
+            } 
+            
+            else if (slider[i].value == 4) {
+                level[i].innerHTML = "Experience";
+                level[i].style.color = "green";
+                slider[i].style.setProperty("--sliderColor", "green"); 
+                slider[i].style.backgroundColor="rgba(0, 128, 0, 0.3)";
+            }
+        };
+        
+      
+        
+      }
+    }
+
+    document.getElementById("skillArea").addEventListener("input", updateChange);
+
+
+    let slider = document.querySelectorAll(".myRange");
+      // let output = document.getElementById("demo");
+      let level = document.querySelectorAll(".level");
+
+      // output.innerHTML = slider.value;
+
+      for (let i=0; i<slider.length; i++){
+        
+        if (slider[i].value == 4) {
+        level[i].innerHTML = "Experience";
+        level[i].style.color = "green";
+        slider[i].style.setProperty("--sliderColor", "green"); 
+        slider[i].style.backgroundColor="rgba(0, 128, 0, 0.3)";
+        }
+        
+        slider[i].oninput = function () {
+            // output.innerHTML = this.value;
+
+            if (slider[i].value == 1) {
+                level[i].innerHTML = "Novice";
+                slider[i].style.setProperty("--sliderColor", "red");
+                level[i].style.color = "red";
+                slider[i].style.backgroundColor="rgba(255, 0, 0, 0.3)";
+            } 
+            
+            else if (slider[i].value == 2) {
+                level[i].innerHTML = "Beginner";
+                level[i].style.color = "rgba(255, 89, 0, 0.984)";
+                slider[i].style.setProperty("--sliderColor", "rgba(255, 89, 0, 0.984)"); 
+                slider[i].style.backgroundColor="rgba(255, 89, 0, 0.3)";
+            } 
+            
+            else if (slider[i].value == 3) {
+                level[i].innerHTML = "Skillful";
+                level[i].style.color = "rgb(255, 169, 10)";
+                slider[i].style.setProperty("--sliderColor", "rgb(255, 169, 10)"); 
+                slider[i].style.backgroundColor="rgba(255, 169, 10, 0.3)";
+            } 
+            
+            else if (slider[i].value == 4) {
+                level[i].innerHTML = "Experience";
+                level[i].style.color = "green";
+                slider[i].style.setProperty("--sliderColor", "green"); 
+                slider[i].style.backgroundColor="rgba(0, 128, 0, 0.3)";
+            }
+        };
+        
+      
+        
+      }
+
+    
+  </script>
+</body>
+
+</html>
