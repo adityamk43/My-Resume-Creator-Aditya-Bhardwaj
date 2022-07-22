@@ -304,6 +304,11 @@ button:hover
         /* left: 3.0427083333cm; */
         left: 2.70427083333cm;
     }
+    
+     * {
+        -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
+        print-color-adjust: exact !important;                 /*Firefox*/
+    }
 
     button {
         display: none;
